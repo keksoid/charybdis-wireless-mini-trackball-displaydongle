@@ -154,7 +154,7 @@
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <150>;
-            bindings = <&lt 4 ESC>, <&mo 6>; // hold, tap, double_tap
+            bindings = <&mo 4 ESC>, <&mo 6>; // hold, tap, double_tap
         };
 
         lt_nav: nav_layer_tap {
@@ -169,7 +169,7 @@
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <170>;
-            bindings = <&lt 8 SPACE>, <&kp SPACE>; // hold, tap, double_tap
+            bindings = <&mo 8 SPACE>, <&kp SPACE>; // hold, tap, double_tap
         };
 
         td_enter_ralt: td_enter_ralt {
@@ -208,7 +208,7 @@
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <170>;
-            bindings = <&lt 2 BACKSPACE>, <&kp BACKSPACE>; // hold, tap, double_tap
+            bindings = <&mo 2 BACKSPACE>, <&kp BACKSPACE>; // hold, tap, double_tap
         };
 
         httl: ht_two_layers {
