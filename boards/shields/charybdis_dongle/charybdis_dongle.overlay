@@ -1,7 +1,7 @@
 // Documentation: https://zmk.dev/docs/development/hardware-integration/dongle
 #include <dt-bindings/zmk/matrix_transform.h>
 #include "charybdis-layouts.dtsi"
-#include "charybdis_pmw3610.dtsi"
+#include "charybdis_input_split.dtsi"
 #include "charybdis_pointer.dtsi"
 
 &charybdis_physical_layout {

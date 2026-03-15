@@ -33,6 +33,8 @@
 
 &trackball {
   status = "okay";
+  /* 4ms mode is for 250Hz with direct USB connection — not suitable for BLE peripheral */
+  /delete-property/ force-awake-4ms-mode;
 };
 
 /* Enable the trackball listener on the peripheral with the sensor */
