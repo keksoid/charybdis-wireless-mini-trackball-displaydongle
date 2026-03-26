@@ -167,11 +167,35 @@
             bindings = <&mo>, <&kp>;
         };
 
+        ht_space_layer: ht_space_layer {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <50>;
+            quick-tap-ms = <150>;
+            require-prior-idle-ms = <50>;
+            retro-tap;
+            hold-while-undecided;
+            bindings = <&mo>, <&kp>;
+        };
+
+        ht_backspace_layer: ht_backspace_layer {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <50>;
+            quick-tap-ms = <150>;
+            require-prior-idle-ms = <50>;
+            retro-tap;
+            hold-while-undecided;
+            bindings = <&mo>, <&kp>;
+        };
+
         td_func_space: td_func_space {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <170>;
-            bindings = <&lt_nav 8 SPACE>, <&kp SPACE>; // hold, tap, double_tap
+            bindings = <&ht_space_layer 8 SPACE>, <&kp SPACE>; // hold, tap, double_tap
         };
 
         td_enter_ralt: td_enter_ralt {
@@ -210,7 +234,7 @@
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <170>;
-            bindings = <&lt_nav 2 BACKSPACE>, <&kp BACKSPACE>; // hold, tap, double_tap
+            bindings = <&ht_backspace_layer 2 BACKSPACE>, <&kp BACKSPACE>; // hold, tap, double_tap
         };
 
         httl: ht_two_layers {
