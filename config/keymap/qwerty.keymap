@@ -71,7 +71,7 @@
         NUM {
             display-name = "Num";
             bindings = <
-&none    &none     &none     &none       &none      &none            &kp PLUS     &kp N7             &kp N8             &kp N9             &kp PRCNT            &kp DELETE
+&kp GRAVE    &none     &none     &none       &none      &none            &kp PLUS     &kp N7             &kp N8             &kp N9             &kp PRCNT            &kp DELETE
 &kp TAB  &kp LCMD  &kp LALT  &kp LSHIFT  &kp LCTRL  &kp BACKSPACE    &kp MINUS    &kp N4             &kp N5             &kp N6             &kp ASTRK            &mm_qm_ex
 &none    &none     &kp X     &none       &none      &none            &kp EQUAL    &kp N1             &kp N2             &kp N3             &kp DOT            &kp KP_SLASH
                              &none       &none      &trans           &kp N0       &kp SPACE
@@ -81,7 +81,7 @@
         NAV {
             display-name = "Nav";
             bindings = <
-&none    &msc MOVE_LEFT  &msc MOVE_UP    &none        &msc MOVE_DOWN  &msc MOVE_RIGHT     &detach_session  &create_or_attach  &next_pane   &show_sessions  &sync_panes       &none
+&kp GRAVE    &msc MOVE_LEFT  &msc MOVE_UP    &none        &msc MOVE_DOWN  &msc MOVE_RIGHT     &detach_session  &create_or_attach  &next_pane   &show_sessions  &sync_panes       &none
 &kp TAB  &mkp MB4        &kp LALT        &kp LSHFT    &kp LCTRL       &mkp MB5            &kp INSERT       &kp LEFT_ARROW     &kp DOWN     &kp UP          &kp RIGHT_ARROW   &none
 &none    &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_UP &mmv MOVE_RIGHT &none               &kp DELETE       &kp HOME           &kp PG_DN    &kp PG_UP       &kp END           &none
                                                       &none   &none   &none               &none   &trans
@@ -91,8 +91,8 @@
         SYM {
             display-name = "Sym";
             bindings = <
-&none     &kp TILDE  &kp DLLR    &kp CARET  &move_line_up    &mc_add_above      &kp PLUS      &kp AMPS  &kp LBKT  &kp RBKT  &kp LT     &kp GT
-&kp GRAVE &kp UNDER  &kp LT      &kp GT     &kp BACKSPACE    &delete_line       &kp KP_MINUS  &kp AT    &kp LPAR  &kp RPAR  &kp ASTRK  &kp PIPE
+&kp GRAVE     &kp TILDE  &kp DLLR    &kp CARET  &move_line_up    &mc_add_above      &kp PLUS      &kp AMPS  &kp LBKT  &kp RBKT  &kp LT     &kp GT
+&none &kp UNDER  &kp LT      &kp GT     &kp BACKSPACE    &delete_line       &kp KP_MINUS  &kp AT    &kp LPAR  &kp RPAR  &kp ASTRK  &kp PIPE
 &code_blk &home_dir  &kp PL_EURO &kp HASH   &move_line_down  &mc_add_below      &kp EQUAL     &kp PRCNT &kp LBRC  &kp RBRC  &kp FSLH   &kp BSLH
                                        &none  &trans     &trans            &trans   &trans
             >;
@@ -111,7 +111,7 @@
         SLOW {
             display-name = "Slow";
             bindings = <
-&none    &msc MOVE_LEFT  &msc MOVE_UP    &none        &msc MOVE_DOWN  &msc MOVE_RIGHT     &detach_session  &create_or_attach  &next_pane   &show_sessions  &sync_panes       &none
+&kp GRAVE    &msc MOVE_LEFT  &msc MOVE_UP    &none        &msc MOVE_DOWN  &msc MOVE_RIGHT     &detach_session  &create_or_attach  &next_pane   &show_sessions  &sync_panes       &none
 &kp TAB  &mkp MB4        &kp LALT        &kp LSHFT    &kp LCTRL       &mkp MB5            &kp INSERT       &kp LEFT_ARROW     &kp DOWN     &kp UP          &kp RIGHT_ARROW   &none
 &none    &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_UP &mmv MOVE_RIGHT &none               &kp DELETE       &kp HOME           &kp PG_DN    &kp PG_UP       &kp END           &none
                                                       &none   &none   &none               &none   &trans
@@ -121,7 +121,7 @@
         SCROLL {
             display-name = "Scroll";
             bindings = <
-&none    &msc MOVE_LEFT  &msc MOVE_UP    &none        &msc MOVE_DOWN  &msc MOVE_RIGHT     &detach_session  &create_or_attach  &next_pane   &show_sessions  &sync_panes       &none
+&kp GRAVE    &msc MOVE_LEFT  &msc MOVE_UP    &none        &msc MOVE_DOWN  &msc MOVE_RIGHT     &detach_session  &create_or_attach  &next_pane   &show_sessions  &sync_panes       &none
 &kp TAB  &mkp MB4        &kp LALT        &kp LSHFT    &kp LCTRL       &mkp MB5            &kp INSERT       &kp LEFT_ARROW     &kp DOWN     &kp UP          &kp RIGHT_ARROW   &none
 &none    &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_UP &mmv MOVE_RIGHT &none               &kp DELETE       &kp HOME           &kp PG_DN    &kp PG_UP       &kp END           &none
                                                       &none   &none   &none               &none   &trans
@@ -131,7 +131,7 @@
         FUNC {
             display-name = "Functional";
             bindings = <
-&none    &none     &none     &none       &none      &none            &kp F3    &kp F10            &kp F11            &kp F12            &none            &none
+&kp GRAVE    &none     &none     &none       &none      &none            &kp F3    &kp F10            &kp F11            &kp F12            &none            &none
 &kp TAB  &kp LCMD  &kp LALT  &kp LSHIFT  &kp LCTRL  &kp BACKSPACE    &kp F2    &kp F7             &kp F8             &kp F9             &kp PRINTSCREEN  &none
 &none    &none     &none     &none       &none      &none            &kp F1    &kp F4             &kp F5             &kp F6             &none            &none
                              &none       &none      &trans           &trans    &trans
