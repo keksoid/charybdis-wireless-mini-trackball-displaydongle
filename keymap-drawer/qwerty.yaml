@@ -85,7 +85,7 @@ layers:
   - ENTER
   - SPACE FUNC
   Num:
-  - ''
+  - '`'
   - ''
   - ''
   - ''
@@ -127,7 +127,7 @@ layers:
   - '0'
   - SPACE
   Nav:
-  - ''
+  - '`'
   - WHEEL L
   - WHEEL D
   - ''
@@ -169,7 +169,7 @@ layers:
   - ''
   - {t: ▽, type: trans}
   Sym:
-  - ''
+  - '`'
   - '~'
   - $
   - ^
@@ -181,7 +181,7 @@ layers:
   - ']'
   - <
   - '>'
-  - '`'
+  - ''
   - _
   - <
   - '>'
@@ -253,7 +253,7 @@ layers:
   - ''
   - ''
   Slow:
-  - ''
+  - '`'
   - WHEEL L
   - WHEEL D
   - ''
@@ -295,7 +295,7 @@ layers:
   - ''
   - {t: ▽, type: trans}
   Scroll:
-  - ''
+  - '`'
   - WHEEL L
   - WHEEL D
   - ''
@@ -337,7 +337,7 @@ layers:
   - ''
   - {t: ▽, type: trans}
   Functional:
-  - ''
+  - '`'
   - ''
   - ''
   - ''
