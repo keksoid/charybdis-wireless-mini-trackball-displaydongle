@@ -107,7 +107,7 @@
             quick-tap-ms = <175>;
             require-prior-idle-ms = <150>;
             retro-tap;
-            hold-while-undecided;
+            hold-trigger-on-release;
             bindings = <&kp>, <&kp>;
             hold-trigger-key-positions = <KEYS_R THUMBS>;
         };
@@ -121,7 +121,7 @@
             quick-tap-ms = <175>;
             require-prior-idle-ms = <150>;
             retro-tap;
-            hold-while-undecided;
+            hold-trigger-on-release;
             bindings = <&kp>, <&kp>;
             hold-trigger-key-positions = <KEYS_L THUMBS>;
         };
@@ -134,7 +134,6 @@
             quick-tap-ms = <175>;
             require-prior-idle-ms = <50>;
             retro-tap;
-            hold-while-undecided;
             bindings = <&kp>, <&kp>;
             hold-trigger-key-positions = <KEYS_R THUMBS>;
         };        
@@ -147,7 +146,6 @@
             quick-tap-ms = <175>;
             require-prior-idle-ms = <50>;
             retro-tap;
-            hold-while-undecided;
             bindings = <&kp>, <&kp>;
             hold-trigger-key-positions = <KEYS_L THUMBS>;
         };
@@ -170,10 +168,10 @@
         ht_space_layer: ht_space_layer {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            flavor = "balanced";
-            tapping-term-ms = <50>;
-            quick-tap-ms = <150>;
-            require-prior-idle-ms = <50>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <170>;
+            quick-tap-ms = <200>;
+            require-prior-idle-ms = <>;
             retro-tap;
             hold-while-undecided;
             bindings = <&mo>, <&kp>;
@@ -182,9 +180,9 @@
         ht_backspace_layer: ht_backspace_layer {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            flavor = "balanced";
-            tapping-term-ms = <50>;
-            quick-tap-ms = <150>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <170>;
+            quick-tap-ms = <200>;
             require-prior-idle-ms = <50>;
             retro-tap;
             hold-while-undecided;
