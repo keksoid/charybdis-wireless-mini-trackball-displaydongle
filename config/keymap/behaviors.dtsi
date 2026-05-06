@@ -102,12 +102,11 @@
         ht_left: left_side_homerow_mod {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            flavor = "balanced";
-            tapping-term-ms = <310>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <280>;
             quick-tap-ms = <175>;
-            require-prior-idle-ms = <150>;
+            require-prior-idle-ms = <50>;
             retro-tap;
-            hold-trigger-on-release;
             bindings = <&kp>, <&kp>;
             hold-trigger-key-positions = <KEYS_R THUMBS>;
         };
@@ -116,12 +115,11 @@
         ht_right: right_side_homerow_mod {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            flavor = "balanced";
-            tapping-term-ms = <310>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <280>;
             quick-tap-ms = <175>;
-            require-prior-idle-ms = <150>;
+            require-prior-idle-ms = <50>;
             retro-tap;
-            hold-trigger-on-release;
             bindings = <&kp>, <&kp>;
             hold-trigger-key-positions = <KEYS_L THUMBS>;
         };
@@ -129,8 +127,8 @@
         ht_left_shift: left_shift_homerow_mod {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            flavor = "balanced";
-            tapping-term-ms = <310>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <280>;
             quick-tap-ms = <175>;
             require-prior-idle-ms = <50>;
             retro-tap;
@@ -141,8 +139,8 @@
         ht_right_shift: right_shift_homerow_mod {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            flavor = "balanced";
-            tapping-term-ms = <310>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <280>;
             quick-tap-ms = <175>;
             require-prior-idle-ms = <50>;
             retro-tap;
@@ -168,9 +166,9 @@
         ht_space_layer: ht_space_layer {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            flavor = "tap-preferred";
-            tapping-term-ms = <170>;
-            quick-tap-ms = <200>;
+            flavor = "balanced";
+            tapping-term-ms = <50>;
+            quick-tap-ms = <150>;
             require-prior-idle-ms = <50>;
             retro-tap;
             hold-while-undecided;
@@ -180,9 +178,9 @@
         ht_backspace_layer: ht_backspace_layer {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            flavor = "tap-preferred";
-            tapping-term-ms = <170>;
-            quick-tap-ms = <200>;
+            flavor = "balanced";
+            tapping-term-ms = <50>;
+            quick-tap-ms = <150>;
             require-prior-idle-ms = <50>;
             retro-tap;
             hold-while-undecided;
