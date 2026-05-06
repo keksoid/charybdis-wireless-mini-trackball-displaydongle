@@ -102,10 +102,10 @@
         ht_left: left_side_homerow_mod {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            flavor = "tap-preferred";
-            tapping-term-ms = <280>;
-            quick-tap-ms = <175>;
-            require-prior-idle-ms = <50>;
+            flavor = "balanced";
+            tapping-term-ms = <200>;
+            quick-tap-ms = <160>;
+            require-prior-idle-ms = <120>;
             retro-tap;
             bindings = <&kp>, <&kp>;
             hold-trigger-key-positions = <KEYS_R THUMBS>;
@@ -115,10 +115,10 @@
         ht_right: right_side_homerow_mod {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            flavor = "tap-preferred";
-            tapping-term-ms = <280>;
-            quick-tap-ms = <175>;
-            require-prior-idle-ms = <50>;
+            flavor = "balanced";
+            tapping-term-ms = <200>;
+            quick-tap-ms = <160>;
+            require-prior-idle-ms = <120>;
             retro-tap;
             bindings = <&kp>, <&kp>;
             hold-trigger-key-positions = <KEYS_L THUMBS>;
@@ -146,6 +146,32 @@
             retro-tap;
             bindings = <&kp>, <&kp>;
             hold-trigger-key-positions = <KEYS_L THUMBS>;
+        };
+
+        // Tap-biased right-hand HRM for fast-roll letters (used on positions 21/22).
+        ht_right_tp: right_side_homerow_mod_tap_preferred {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <200>;
+            quick-tap-ms = <160>;
+            require-prior-idle-ms = <120>;
+            retro-tap;
+            bindings = <&kp>, <&kp>;
+            hold-trigger-key-positions = <KEYS_L THUMBS>;
+        };
+
+        // Tap-biased left-hand HRM for fast-roll letter keys (used on A).
+        ht_left_tp: left_side_homerow_mod_tap_preferred {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <200>;
+            quick-tap-ms = <160>;
+            require-prior-idle-ms = <120>;
+            retro-tap;
+            bindings = <&kp>, <&kp>;
+            hold-trigger-key-positions = <KEYS_R THUMBS>;
         };
 
         td_esc_sym: td_esc_sym {
