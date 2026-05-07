@@ -109,6 +109,7 @@
             retro-tap;
             bindings = <&kp>, <&kp>;
             hold-trigger-key-positions = <KEYS_R THUMBS>;
+            hold-trigger-on-release;
         };
         
         // Right-hand HRM
@@ -122,6 +123,7 @@
             retro-tap;
             bindings = <&kp>, <&kp>;
             hold-trigger-key-positions = <KEYS_L THUMBS>;
+            hold-trigger-on-release;
         };
 
         ht_left_shift: left_shift_homerow_mod {
@@ -159,6 +161,7 @@
             retro-tap;
             bindings = <&kp>, <&kp>;
             hold-trigger-key-positions = <KEYS_L THUMBS>;
+            hold-trigger-on-release;
         };
 
         // Tap-biased left-hand HRM for fast-roll letter keys (used on A).
@@ -172,6 +175,7 @@
             retro-tap;
             bindings = <&kp>, <&kp>;
             hold-trigger-key-positions = <KEYS_R THUMBS>;
+            hold-trigger-on-release;
         };
 
         td_esc_sym: td_esc_sym {
