@@ -39,9 +39,9 @@ layers:
   - {t: '?', s: '!'}
   - ESC SYM
   - LCLK SCRL
-  - BS NUM
+  - {t: BACK SPACE, h: Num}
   - ENTER RALT
-  - SPACE FUNC
+  - {t: SPACE, h: Functional}
   Russan:
   - ENG LANG
   - RU CYRILLIC SHORT I
@@ -81,9 +81,9 @@ layers:
   - RU CYRILLIC HARD SIGN
   - ESC SYM
   - LCLK SCRL
-  - BS NUM
+  - {t: BACK SPACE, h: Num}
   - ENTER
-  - SPACE FUNC
+  - {t: SPACE, h: Functional}
   Num:
   - '`'
   - ''
@@ -123,7 +123,7 @@ layers:
   - /
   - ''
   - ''
-  - {t: ▽, type: trans}
+  - {type: held}
   - '0'
   - SPACE
   Nav:
@@ -377,7 +377,7 @@ layers:
   - ''
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - {type: held}
 combos:
 - p: [17, 18]
   k: CAPS WORD
