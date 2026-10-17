@@ -1,6 +1,9 @@
-#define KEYS_L 0 1 2 3 4 5 12 13 14 15 16 17 24 25 26 27 28 29 36 37 38 19 20 21 22  // Left-hand keys.
-#define KEYS_R 6 7 8 9 10 11 18 19 20 21 22 23 30 31 32 33 34 35 39 40 16 15 14 13  // Right-hand keys.
-#define THUMBS 36 37 38 39 40  // Thumb keys.
+#define KEYS_L 0 1 2 3 4 5 12 13 14 15 16 17 24 25 26 27 28 29  // Left-hand keys.
+#define KEYS_R 6 7 8 9 10 11 18 19 20 21 22 23 30 31 32 33 34 35  // Right-hand keys.
+// Thumbs that can trigger a home row mod hold. Space (40) is left out on purpose:
+// a letter rolled into space must never become Ctrl/Cmd+Space (language switch).
+// Mod+Space still works: hold the mod past tapping-term-ms, then press space.
+#define THUMBS 36 37 38 39  // Thumb keys.
 
 / {
     behaviors {
@@ -103,40 +106,28 @@
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "balanced";
-            tapping-term-ms = <300>;
-            quick-tap-ms = <160>;
-            require-prior-idle-ms = <50>;
-            retro-tap;
+            tapping-term-ms = <280>;
+            quick-tap-ms = <175>;
+            require-prior-idle-ms = <150>; // a key pressed less than 150 ms ago means we are typing: always tap
+            retro-tap; // mod held alone and released: type the letter, not a lone Alt/Win press
             bindings = <&kp>, <&kp>;
             hold-trigger-key-positions = <KEYS_R THUMBS>;
-            hold-trigger-on-release;
+            hold-trigger-on-release; // same-hand keys can still stack mods (e.g. Ctrl+Shift)
         };
-        
+
         // Right-hand HRM
         ht_right: right_side_homerow_mod {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "balanced";
-            tapping-term-ms = <300>;
-            quick-tap-ms = <160>;
-            require-prior-idle-ms = <50>;
-            retro-tap;
-            bindings = <&kp>, <&kp>;
-            hold-trigger-key-positions = <KEYS_L THUMBS>;
-            hold-trigger-on-release;
-        };
-
-        ht_left_shift: left_shift_homerow_mod {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "tap-preferred";
             tapping-term-ms = <280>;
             quick-tap-ms = <175>;
-            require-prior-idle-ms = <50>;
-            retro-tap;
+            require-prior-idle-ms = <150>; // a key pressed less than 150 ms ago means we are typing: always tap
+            retro-tap; // mod held alone and released: type the letter, not a lone Alt/Win press
             bindings = <&kp>, <&kp>;
-            hold-trigger-key-positions = <KEYS_R THUMBS>;
-        };        
+            hold-trigger-key-positions = <KEYS_L THUMBS>;
+            hold-trigger-on-release; // same-hand keys can still stack mods (e.g. Ctrl+Shift)
+        };
 
         ht_right_shift: right_shift_homerow_mod {
             compatible = "zmk,behavior-hold-tap";
@@ -144,38 +135,10 @@
             flavor = "tap-preferred";
             tapping-term-ms = <280>;
             quick-tap-ms = <175>;
-            require-prior-idle-ms = <50>;
+            require-prior-idle-ms = <150>;
             retro-tap;
             bindings = <&kp>, <&kp>;
             hold-trigger-key-positions = <KEYS_L THUMBS>;
-        };
-
-        // Tap-biased right-hand HRM for fast-roll letters (used on positions 21/22).
-        ht_right_tp: right_side_homerow_mod_tap_preferred {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "tap-preferred";
-            tapping-term-ms = <300>;
-            quick-tap-ms = <160>;
-            require-prior-idle-ms = <50>;
-            retro-tap;
-            bindings = <&kp>, <&kp>;
-            hold-trigger-key-positions = <KEYS_L THUMBS>;
-            hold-trigger-on-release;
-        };
-
-        // Tap-biased left-hand HRM for fast-roll letter keys (used on A).
-        ht_left_tp: left_side_homerow_mod_tap_preferred {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "tap-preferred";
-            tapping-term-ms = <300>;
-            quick-tap-ms = <160>;
-            require-prior-idle-ms = <50>;
-            retro-tap;
-            bindings = <&kp>, <&kp>;
-            hold-trigger-key-positions = <KEYS_R THUMBS>;
-            hold-trigger-on-release;
         };
 
         td_esc_sym: td_esc_sym {
@@ -197,11 +160,10 @@
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "balanced";
-            tapping-term-ms = <50>;
-            quick-tap-ms = <150>;
-            require-prior-idle-ms = <50>;
+            tapping-term-ms = <200>;
+            quick-tap-ms = <175>;          // tap, then hold = key repeat
+            require-prior-idle-ms = <150>; // pressed right after a letter: always tap
             retro-tap;
-            hold-while-undecided;
             bindings = <&mo>, <&kp>;
         };
 
@@ -209,19 +171,11 @@
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "balanced";
-            tapping-term-ms = <50>;
-            quick-tap-ms = <150>;
-            require-prior-idle-ms = <50>;
+            tapping-term-ms = <200>;
+            quick-tap-ms = <175>;          // tap, then hold = key repeat
+            require-prior-idle-ms = <150>; // pressed right after a letter: always tap
             retro-tap;
-            hold-while-undecided;
             bindings = <&mo>, <&kp>;
-        };
-
-        td_func_space: td_func_space {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <170>;
-            bindings = <&ht_space_layer 8 SPACE>, <&kp SPACE>; // hold, tap, double_tap
         };
 
         td_enter_ralt: td_enter_ralt {
@@ -254,13 +208,6 @@
             tapping-term-ms = <40>;
             hold-while-undecided;
             bindings = <&mo>, <&kp>;
-        };
-
-        td_backspace_num: td_backspace_num {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <170>;
-            bindings = <&ht_backspace_layer 2 BACKSPACE>, <&kp BACKSPACE>; // hold, tap, double_tap
         };
 
         httl: ht_two_layers {
