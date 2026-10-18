@@ -31,6 +31,17 @@ git config --global --add safe.directory /workspaces/zmk/zmk
 echo "🛠️  Updating west modules..."
 west update
 
+# Apply local ZMK patches (skip the ones that are already applied)
+for p in "$REPO_ROOT"/patches/zmk-*.patch; do
+    [ -f "$p" ] || continue
+    if git -C zmk apply --reverse --check "$p" 2>/dev/null; then
+        echo "🩹 Already applied: $(basename "$p")"
+    else
+        echo "🩹 Applying $(basename "$p")"
+        git -C zmk apply "$p"
+    fi
+done
+
 # Set environment variables in the current shell
 echo "🛠️  Setting Zephyr build environment..."
 west zephyr-export

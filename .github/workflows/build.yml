@@ -89,6 +89,17 @@ jobs:
         echo "👀 West workspace ready. Project structure:"
         west list
 
+    # ───────── apply local ZMK patches ─────────
+    - name: Apply ZMK patches
+      shell: bash
+      run: |
+        set -euo pipefail
+        for p in "$GITHUB_WORKSPACE"/patches/zmk-*.patch; do
+          [ -f "$p" ] || continue
+          echo "🩹 Applying $(basename "$p")"
+          git -C "$GITHUB_WORKSPACE/zmk" apply "$p"
+        done
+
     # ───────── pull in keymaps ─────────
     - name: Download keymaps
       uses: actions/download-artifact@v4
