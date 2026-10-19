@@ -41,100 +41,135 @@
         BASE {
             display-name = "Base";
             bindings = <
-// ╭───────────────┬────────────────┬────────────────┬──────────────────────┬─────────────────┬──────╮  ╭──────┬──────────────────┬────────────────────────┬───────────────────┬────────────────────────┬─────────────╮
-    &td_layers_1    &kp Q            &kp W            &kp E                   &kp R             &kp T     &kp Y  &kp U              &kp I                    &kp O               &kp P                     &kp DELETE
-// ├───────────────┼────────────────┼────────────────┼──────────────────────┼─────────────────┼──────┤  ├──────┼──────────────────┼────────────────────────┼───────────────────┼────────────────────────┼─────────────┤
-    &kp TAB         &ht_left LCMD A     &ht_left LALT S  &ht_left LSHFT D  &ht_left LCTRL F  &kp G     &kp H  &ht_right RCTRL J  &ht_right RSHFT K  &ht_right LALT L    &ht_right RCMD SEMICOLON     &kp APOS
-// ├───────────────┼────────────────┼────────────────┼──────────────────────┼─────────────────┼──────┤  ├──────┼──────────────────┼────────────────────────┼───────────────────┼────────────────────────┼─────────────┤
-    &clip_hist      &kp Z            &kp X            &kp C                   &kp V             &kp B     &kp N  &kp M              &kp COMMA                &kp PERIOD          &kp FSLH                  &mm_qm_ex
-// ╰───────────────┴────────────────┴────────────────┼──────────────────────┼─────────────────┼──────┤  ├──────┼──────────────────┼────────────────────────┴───────────────────┴────────────────────────┴─────────────╯
-                                             &td_esc_sym   &td_mouse_scroll   &ht_backspace_layer 2 BACKSPACE          &td_enter_ralt   &ht_space_layer 8 SPACE
-                                         // ╰────────────┴──────────────────┴────────────────────────╯  ╰───────────────┴────────────────╯
+// ╭──────────────┬─────────────────┬─────────────────┬──────────────────┬──────────────────┬─────────────────────────────────╮  ╭────────────────┬─────────────────────────┬───────────────────┬──────────────────┬──────────────────────────┬────────────╮
+     &td_layers_1   &kp Q             &kp W             &kp E              &kp R              &kp T                                &kp Y            &kp U                     &kp I               &kp O              &kp P                      &kp DELETE
+// ├──────────────┼─────────────────┼─────────────────┼──────────────────┼──────────────────┼─────────────────────────────────┤  ├────────────────┼─────────────────────────┼───────────────────┼──────────────────┼──────────────────────────┼────────────┤
+     &kp TAB        &ht_left LCMD A   &ht_left LALT S   &ht_left LSHFT D   &ht_left LCTRL F   &kp G                                &kp H            &ht_right RCTRL J         &ht_right RSHFT K   &ht_right LALT L   &ht_right RCMD SEMICOLON   &kp APOS
+// ├──────────────┼─────────────────┼─────────────────┼──────────────────┼──────────────────┼─────────────────────────────────┤  ├────────────────┼─────────────────────────┼───────────────────┼──────────────────┼──────────────────────────┼────────────┤
+     &clip_hist     &kp Z             &kp X             &kp C              &kp V              &kp B                                &kp N            &kp M                     &kp COMMA           &kp PERIOD         &kp FSLH                   &mm_qm_ex
+// ╰──────────────┴─────────────────┴─────────────────┼──────────────────┼──────────────────┼─────────────────────────────────┤  ├────────────────┼─────────────────────────┼───────────────────┴──────────────────┴──────────────────────────┴────────────╯
+                                                        &td_esc_sym        &td_mouse_scroll   &ht_backspace_layer 2 BACKSPACE      &td_enter_ralt   &ht_space_layer 8 SPACE
+//                                                    ╰──────────────────┴──────────────────┴─────────────────────────────────╯  ╰────────────────┴─────────────────────────╯
             >;
         };
 
         RUS {
             display-name = "Russan";
             bindings = <
-// ╭─────────────────┬──────────────────────────────┬───────────────────────────────┬─────────────────────────────────────┬──────────────────────────────┬────────────────────╮  ╭───────────────────┬───────────────────────────────┬─────────────────────────────────────┬──────────────────────────────┬──────────────────────────────────┬───────────────────────────╮
-     &td_layers_0      &kp RU_CYRILLIC_SHORT_I        &kp RU_CYRILLIC_TSE             &kp RU_CYRILLIC_U                     &kp RU_CYRILLIC_KA             &kp RU_CYRILLIC_IE     &kp RU_CYRILLIC_EN   &kp RU_CYRILLIC_GHE             &kp RU_CYRILLIC_SHA                   &kp RU_CYRILLIC_SHCHA            &kp RU_CYRILLIC_ZE               &kp RU_CYRILLIC_HA
-// ├─────────────────┼──────────────────────────────┼───────────────────────────────┼─────────────────────────────────────┼──────────────────────────────┼────────────────────┤  ├───────────────────┼───────────────────────────────┼─────────────────────────────────────┼──────────────────────────────┼──────────────────────────────────┼───────────────────────────┤
-     &kp TAB           &ht_left LCMD RU_CYRILLIC_EF      &ht_left LALT RU_CYRILLIC_YERU  &ht_left LSHFT RU_CYRILLIC_VE   &ht_left LCTRL RU_CYRILLIC_A   &kp RU_CYRILLIC_PE     &kp RU_CYRILLIC_ER   &ht_right RCTRL RU_CYRILLIC_O   &ht_right RSHFT RU_CYRILLIC_EL  &ht_right LALT RU_CYRILLIC_DE    &ht_right RCMD RU_CYRILLIC_ZHE      &kp RU_CYRILLIC_E
-// ├─────────────────┼──────────────────────────────┼───────────────────────────────┼─────────────────────────────────────┼──────────────────────────────┼────────────────────┤  ├───────────────────┼───────────────────────────────┼─────────────────────────────────────┼──────────────────────────────┼──────────────────────────────────┼───────────────────────────┤
-     &clip_hist        &kp RU_CYRILLIC_YA             &kp RU_CYRILLIC_CHE             &kp RU_CYRILLIC_ES                    &kp RU_CYRILLIC_EM             &kp RU_CYRILLIC_I      &kp RU_CYRILLIC_TE   &kp RU_CYRILLIC_SOFT_SIGN       &kp RU_CYRILLIC_BE                    &kp RU_CYRILLIC_YU               &kp RU_PERIOD                    &kp RU_CYRILLIC_HARD_SIGN
-// ╰─────────────────┴──────────────────────────────┴───────────────────────────────┼─────────────────────────────────────┼──────────────────────────────┼────────────────────┤  ├───────────────────┼───────────────────────────────┴─────────────────────────────────────┴──────────────────────────────┴──────────────────────────────────┴───────────────────────────╯
-                                                                                                                           &td_esc_sym   &td_mouse_scroll   &ht_backspace_layer 2 BACKSPACE     &kp ENTER   &ht_space_layer 8 SPACE
-                                                                                                                 //       ╰────────────┴──────────────────┴───────────────────╯  ╰──────────┴───────────────╯
+// ╭──────────────┬──────────────────────────────┬────────────────────────────────┬───────────────────────────────┬──────────────────────────────┬─────────────────────────────────╮  ╭────────────────────┬───────────────────────────────┬────────────────────────────────┬───────────────────────────────┬────────────────────────────────┬───────────────────────────╮
+     &td_layers_0   &kp RU_CYRILLIC_SHORT_I        &kp RU_CYRILLIC_TSE              &kp RU_CYRILLIC_U               &kp RU_CYRILLIC_KA             &kp RU_CYRILLIC_IE                   &kp RU_CYRILLIC_EN   &kp RU_CYRILLIC_GHE             &kp RU_CYRILLIC_SHA              &kp RU_CYRILLIC_SHCHA           &kp RU_CYRILLIC_ZE               &kp RU_CYRILLIC_HA
+// ├──────────────┼──────────────────────────────┼────────────────────────────────┼───────────────────────────────┼──────────────────────────────┼─────────────────────────────────┤  ├────────────────────┼───────────────────────────────┼────────────────────────────────┼───────────────────────────────┼────────────────────────────────┼───────────────────────────┤
+     &kp TAB        &ht_left LCMD RU_CYRILLIC_EF   &ht_left LALT RU_CYRILLIC_YERU   &ht_left LSHFT RU_CYRILLIC_VE   &ht_left LCTRL RU_CYRILLIC_A   &kp RU_CYRILLIC_PE                   &kp RU_CYRILLIC_ER   &ht_right RCTRL RU_CYRILLIC_O   &ht_right RSHFT RU_CYRILLIC_EL   &ht_right LALT RU_CYRILLIC_DE   &ht_right RCMD RU_CYRILLIC_ZHE   &kp RU_CYRILLIC_E
+// ├──────────────┼──────────────────────────────┼────────────────────────────────┼───────────────────────────────┼──────────────────────────────┼─────────────────────────────────┤  ├────────────────────┼───────────────────────────────┼────────────────────────────────┼───────────────────────────────┼────────────────────────────────┼───────────────────────────┤
+     &clip_hist     &kp RU_CYRILLIC_YA             &kp RU_CYRILLIC_CHE              &kp RU_CYRILLIC_ES              &kp RU_CYRILLIC_EM             &kp RU_CYRILLIC_I                    &kp RU_CYRILLIC_TE   &kp RU_CYRILLIC_SOFT_SIGN       &kp RU_CYRILLIC_BE               &kp RU_CYRILLIC_YU              &kp RU_PERIOD                    &kp RU_CYRILLIC_HARD_SIGN
+// ╰──────────────┴──────────────────────────────┴────────────────────────────────┼───────────────────────────────┼──────────────────────────────┼─────────────────────────────────┤  ├────────────────────┼───────────────────────────────┼────────────────────────────────┴───────────────────────────────┴────────────────────────────────┴───────────────────────────╯
+                                                                                    &td_esc_sym                     &td_mouse_scroll               &ht_backspace_layer 2 BACKSPACE      &kp ENTER            &ht_space_layer 8 SPACE
+//                                                                                ╰───────────────────────────────┴──────────────────────────────┴─────────────────────────────────╯  ╰────────────────────┴───────────────────────────────╯
             >;
         };
 
         NUM {
             display-name = "Num";
             bindings = <
-&kp GRAVE    &none     &none     &none       &none      &none            &kp PLUS     &kp N7             &kp N8             &kp N9             &kp PRCNT            &kp DELETE
-&kp TAB  &kp LCMD  &kp LALT  &kp LSHIFT  &kp LCTRL  &kp BACKSPACE    &kp MINUS    &kp N4             &kp N5             &kp N6             &kp ASTRK            &mm_qm_ex
-&none    &none     &kp X     &none       &none      &none            &kp EQUAL    &kp N1             &kp N2             &kp N3             &kp DOT            &kp KP_SLASH
-                             &none       &none      &trans           &kp N0       &kp SPACE
+// ╭───────────┬──────────┬──────────┬────────────┬───────────┬───────────────╮  ╭───────────┬───────────┬────────┬────────┬───────────┬──────────────╮
+     &kp GRAVE   &none      &none      &none        &none       &none              &kp PLUS    &kp N7      &kp N8   &kp N9   &kp PRCNT   &kp DELETE
+// ├───────────┼──────────┼──────────┼────────────┼───────────┼───────────────┤  ├───────────┼───────────┼────────┼────────┼───────────┼──────────────┤
+     &kp TAB     &kp LCMD   &kp LALT   &kp LSHIFT   &kp LCTRL   &kp BACKSPACE      &kp MINUS   &kp N4      &kp N5   &kp N6   &kp ASTRK   &mm_qm_ex
+// ├───────────┼──────────┼──────────┼────────────┼───────────┼───────────────┤  ├───────────┼───────────┼────────┼────────┼───────────┼──────────────┤
+     &none       &none      &kp X      &none        &none       &none              &kp EQUAL   &kp N1      &kp N2   &kp N3   &kp DOT     &kp KP_SLASH
+// ╰───────────┴──────────┴──────────┼────────────┼───────────┼───────────────┤  ├───────────┼───────────┼────────┴────────┴───────────┴──────────────╯
+                                       &none        &none       &trans             &kp N0      &kp SPACE
+//                                   ╰────────────┴───────────┴───────────────╯  ╰───────────┴───────────╯
             >;
         };
 
         NAV {
             display-name = "Nav";
             bindings = <
-&kp GRAVE    &msc MOVE_LEFT  &msc MOVE_UP    &none        &msc MOVE_DOWN  &msc MOVE_RIGHT     &detach_session  &create_or_attach  &next_pane   &show_sessions  &sync_panes       &none
-&kp TAB  &mkp MB4        &kp LALT        &kp LSHFT    &kp LCTRL       &mkp MB5            &kp INSERT       &kp LEFT_ARROW     &kp DOWN     &kp UP          &kp RIGHT_ARROW   &none
-&none    &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_UP &mmv MOVE_RIGHT &none               &kp DELETE       &kp HOME           &kp PG_DN    &kp PG_UP       &kp END           &none
-                                                      &none   &none   &none               &none   &trans
+// ╭───────────┬────────────────┬────────────────┬──────────────┬─────────────────┬─────────────────╮  ╭─────────────────┬───────────────────┬────────────┬────────────────┬─────────────────┬───────╮
+     &kp GRAVE   &msc MOVE_LEFT   &msc MOVE_UP     &none          &msc MOVE_DOWN    &msc MOVE_RIGHT      &detach_session   &create_or_attach   &next_pane   &show_sessions   &sync_panes       &none
+// ├───────────┼────────────────┼────────────────┼──────────────┼─────────────────┼─────────────────┤  ├─────────────────┼───────────────────┼────────────┼────────────────┼─────────────────┼───────┤
+     &kp TAB     &mkp MB4         &kp LALT         &kp LSHFT      &kp LCTRL         &mkp MB5             &kp INSERT        &kp LEFT_ARROW      &kp DOWN     &kp UP           &kp RIGHT_ARROW   &none
+// ├───────────┼────────────────┼────────────────┼──────────────┼─────────────────┼─────────────────┤  ├─────────────────┼───────────────────┼────────────┼────────────────┼─────────────────┼───────┤
+     &none       &mmv MOVE_LEFT   &mmv MOVE_DOWN   &mmv MOVE_UP   &mmv MOVE_RIGHT   &none                &kp DELETE        &kp HOME            &kp PG_DN    &kp PG_UP        &kp END           &none
+// ╰───────────┴────────────────┴────────────────┼──────────────┼─────────────────┼─────────────────┤  ├─────────────────┼───────────────────┼────────────┴────────────────┴─────────────────┴───────╯
+                                                   &none          &none             &none                &none             &trans
+//                                               ╰──────────────┴─────────────────┴─────────────────╯  ╰─────────────────┴───────────────────╯
             >;
         };
 
         SYM {
             display-name = "Sym";
             bindings = <
-&kp GRAVE     &kp TILDE  &kp DLLR    &kp CARET  &move_line_up    &mc_add_above      &kp PLUS      &kp AMPS  &kp LBKT  &kp RBKT  &kp LT     &kp GT
-&none &kp UNDER  &kp LT      &kp GT     &kp BACKSPACE    &delete_line       &kp KP_MINUS  &kp AT    &kp LPAR  &kp RPAR  &kp ASTRK  &kp PIPE
-&code_blk &home_dir  &kp PL_EURO &kp HASH   &move_line_down  &mc_add_below      &kp EQUAL     &kp PRCNT &kp LBRC  &kp RBRC  &kp FSLH   &kp BSLH
-                                       &none  &trans     &trans            &trans   &trans
+// ╭───────────┬───────────┬─────────────┬───────────┬─────────────────┬───────────────╮  ╭──────────────┬───────────┬──────────┬──────────┬───────────┬──────────╮
+     &kp GRAVE   &kp TILDE   &kp DLLR      &kp CARET   &move_line_up     &mc_add_above      &kp PLUS       &kp AMPS    &kp LBKT   &kp RBKT   &kp LT      &kp GT
+// ├───────────┼───────────┼─────────────┼───────────┼─────────────────┼───────────────┤  ├──────────────┼───────────┼──────────┼──────────┼───────────┼──────────┤
+     &none       &kp UNDER   &kp LT        &kp GT      &kp BACKSPACE     &delete_line       &kp KP_MINUS   &kp AT      &kp LPAR   &kp RPAR   &kp ASTRK   &kp PIPE
+// ├───────────┼───────────┼─────────────┼───────────┼─────────────────┼───────────────┤  ├──────────────┼───────────┼──────────┼──────────┼───────────┼──────────┤
+     &code_blk   &home_dir   &kp PL_EURO   &kp HASH    &move_line_down   &mc_add_below      &kp EQUAL      &kp PRCNT   &kp LBRC   &kp RBRC   &kp FSLH    &kp BSLH
+// ╰───────────┴───────────┴─────────────┼───────────┼─────────────────┼───────────────┤  ├──────────────┼───────────┼──────────┴──────────┴───────────┴──────────╯
+                                           &none       &trans            &trans             &trans         &trans
+//                                       ╰───────────┴─────────────────┴───────────────╯  ╰──────────────┴───────────╯
             >;
         };
 
         EXTRAS {
             display-name = "Xtra";
             bindings = <
-&studio_unlock    &shrug          &lgtm           &gcm            &none           &kp C_BRIGHTNESS_INC    &bt BT_SEL 0  &bt BT_SEL 1    &bt BT_SEL 2       &bt BT_SEL 3  &out OUT_TOG         &bt BT_CLR
-&kp C_SLEEP       &sudo           &none           &none           &none           &kp C_BRIGHTNESS_DEC    &none         &kp C_PREVIOUS  &kp C_PLAY_PAUSE   &kp C_STOP    &kp C_NEXT           &none
-&kp C_AL_COFFEE   &kp C_AC_UNDO   &kp C_AC_CUT    &kp C_AC_COPY   &kp C_AC_PASTE  &none                   &new_dir      &kp K_MUTE      &kp C_VOLUME_DOWN  &kp C_VOLUME_UP   &kp PRINTSCREEN  &none
-                                                                                   &none  &none  &none    &none         &none
+// ╭─────────────────┬───────────────┬──────────────┬───────────────┬────────────────┬──────────────────────╮  ╭──────────────┬────────────────┬───────────────────┬─────────────────┬─────────────────┬────────────╮
+     &studio_unlock    &shrug          &lgtm          &gcm            &none            &kp C_BRIGHTNESS_INC      &bt BT_SEL 0   &bt BT_SEL 1     &bt BT_SEL 2        &bt BT_SEL 3      &out OUT_TOG      &bt BT_CLR
+// ├─────────────────┼───────────────┼──────────────┼───────────────┼────────────────┼──────────────────────┤  ├──────────────┼────────────────┼───────────────────┼─────────────────┼─────────────────┼────────────┤
+     &kp C_SLEEP       &sudo           &none          &none           &none            &kp C_BRIGHTNESS_DEC      &none          &kp C_PREVIOUS   &kp C_PLAY_PAUSE    &kp C_STOP        &kp C_NEXT        &none
+// ├─────────────────┼───────────────┼──────────────┼───────────────┼────────────────┼──────────────────────┤  ├──────────────┼────────────────┼───────────────────┼─────────────────┼─────────────────┼────────────┤
+     &kp C_AL_COFFEE   &kp C_AC_UNDO   &kp C_AC_CUT   &kp C_AC_COPY   &kp C_AC_PASTE   &none                     &new_dir       &kp K_MUTE       &kp C_VOLUME_DOWN   &kp C_VOLUME_UP   &kp PRINTSCREEN   &none
+// ╰─────────────────┴───────────────┴──────────────┼───────────────┼────────────────┼──────────────────────┤  ├──────────────┼────────────────┼───────────────────┴─────────────────┴─────────────────┴────────────╯
+                                                      &none           &none            &none                     &none          &none
+//                                                  ╰───────────────┴────────────────┴──────────────────────╯  ╰──────────────┴────────────────╯
             >;
         };
 
         SLOW {
             display-name = "Slow";
             bindings = <
-&kp GRAVE    &msc MOVE_LEFT  &msc MOVE_UP    &none        &msc MOVE_DOWN  &msc MOVE_RIGHT     &detach_session  &create_or_attach  &next_pane   &show_sessions  &sync_panes       &none
-&kp TAB  &mkp MB4        &kp LALT        &kp LSHFT    &kp LCTRL       &mkp MB5            &kp INSERT       &kp LEFT_ARROW     &kp DOWN     &kp UP          &kp RIGHT_ARROW   &none
-&none    &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_UP &mmv MOVE_RIGHT &none               &kp DELETE       &kp HOME           &kp PG_DN    &kp PG_UP       &kp END           &none
-                                                      &none   &none   &none               &none   &trans
+// ╭───────────┬────────────────┬────────────────┬──────────────┬─────────────────┬─────────────────╮  ╭─────────────────┬───────────────────┬────────────┬────────────────┬─────────────────┬───────╮
+     &kp GRAVE   &msc MOVE_LEFT   &msc MOVE_UP     &none          &msc MOVE_DOWN    &msc MOVE_RIGHT      &detach_session   &create_or_attach   &next_pane   &show_sessions   &sync_panes       &none
+// ├───────────┼────────────────┼────────────────┼──────────────┼─────────────────┼─────────────────┤  ├─────────────────┼───────────────────┼────────────┼────────────────┼─────────────────┼───────┤
+     &kp TAB     &mkp MB4         &kp LALT         &kp LSHFT      &kp LCTRL         &mkp MB5             &kp INSERT        &kp LEFT_ARROW      &kp DOWN     &kp UP           &kp RIGHT_ARROW   &none
+// ├───────────┼────────────────┼────────────────┼──────────────┼─────────────────┼─────────────────┤  ├─────────────────┼───────────────────┼────────────┼────────────────┼─────────────────┼───────┤
+     &none       &mmv MOVE_LEFT   &mmv MOVE_DOWN   &mmv MOVE_UP   &mmv MOVE_RIGHT   &none                &kp DELETE        &kp HOME            &kp PG_DN    &kp PG_UP        &kp END           &none
+// ╰───────────┴────────────────┴────────────────┼──────────────┼─────────────────┼─────────────────┤  ├─────────────────┼───────────────────┼────────────┴────────────────┴─────────────────┴───────╯
+                                                   &none          &none             &none                &none             &trans
+//                                               ╰──────────────┴─────────────────┴─────────────────╯  ╰─────────────────┴───────────────────╯
             >;
         };
 
         SCROLL {
             display-name = "Scroll";
             bindings = <
-&kp GRAVE    &msc MOVE_LEFT  &msc MOVE_UP    &none        &msc MOVE_DOWN  &msc MOVE_RIGHT     &detach_session  &create_or_attach  &next_pane   &show_sessions  &sync_panes       &none
-&kp TAB  &mkp MB4        &kp LALT        &kp LSHFT    &kp LCTRL       &mkp MB5            &kp INSERT       &kp LEFT_ARROW     &kp DOWN     &kp UP          &kp RIGHT_ARROW   &none
-&none    &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_UP &mmv MOVE_RIGHT &none               &kp DELETE       &kp HOME           &kp PG_DN    &kp PG_UP       &kp END           &none
-                                                      &none   &none   &none               &none   &trans
+// ╭───────────┬────────────────┬────────────────┬──────────────┬─────────────────┬─────────────────╮  ╭─────────────────┬───────────────────┬────────────┬────────────────┬─────────────────┬───────╮
+     &kp GRAVE   &msc MOVE_LEFT   &msc MOVE_UP     &none          &msc MOVE_DOWN    &msc MOVE_RIGHT      &detach_session   &create_or_attach   &next_pane   &show_sessions   &sync_panes       &none
+// ├───────────┼────────────────┼────────────────┼──────────────┼─────────────────┼─────────────────┤  ├─────────────────┼───────────────────┼────────────┼────────────────┼─────────────────┼───────┤
+     &kp TAB     &mkp MB4         &kp LALT         &kp LSHFT      &kp LCTRL         &mkp MB5             &kp INSERT        &kp LEFT_ARROW      &kp DOWN     &kp UP           &kp RIGHT_ARROW   &none
+// ├───────────┼────────────────┼────────────────┼──────────────┼─────────────────┼─────────────────┤  ├─────────────────┼───────────────────┼────────────┼────────────────┼─────────────────┼───────┤
+     &none       &mmv MOVE_LEFT   &mmv MOVE_DOWN   &mmv MOVE_UP   &mmv MOVE_RIGHT   &none                &kp DELETE        &kp HOME            &kp PG_DN    &kp PG_UP        &kp END           &none
+// ╰───────────┴────────────────┴────────────────┼──────────────┼─────────────────┼─────────────────┤  ├─────────────────┼───────────────────┼────────────┴────────────────┴─────────────────┴───────╯
+                                                   &none          &none             &none                &none             &trans
+//                                               ╰──────────────┴─────────────────┴─────────────────╯  ╰─────────────────┴───────────────────╯
             >;
         };
 
         FUNC {
             display-name = "Functional";
             bindings = <
-&kp GRAVE    &none     &none     &none       &none      &none            &kp F3    &kp F10            &kp F11            &kp F12            &none            &none
-&kp TAB  &kp LCMD  &kp LALT  &kp LSHIFT  &kp LCTRL  &kp BACKSPACE    &kp F2    &kp F7             &kp F8             &kp F9             &kp PRINTSCREEN  &none
-&none    &none     &none     &none       &none      &none            &kp F1    &kp F4             &kp F5             &kp F6             &none            &none
-                             &none       &none      &trans           &trans    &trans
+// ╭───────────┬──────────┬──────────┬────────────┬───────────┬───────────────╮  ╭─────────┬────────┬────────┬────────┬─────────────────┬───────╮
+     &kp GRAVE   &none      &none      &none        &none       &none              &kp F12   &kp F7   &kp F8   &kp F9   &none             &none
+// ├───────────┼──────────┼──────────┼────────────┼───────────┼───────────────┤  ├─────────┼────────┼────────┼────────┼─────────────────┼───────┤
+     &kp TAB     &kp LCMD   &kp LALT   &kp LSHIFT   &kp LCTRL   &kp BACKSPACE      &kp F11   &kp F4   &kp F5   &kp F6   &kp PRINTSCREEN   &none
+// ├───────────┼──────────┼──────────┼────────────┼───────────┼───────────────┤  ├─────────┼────────┼────────┼────────┼─────────────────┼───────┤
+     &none       &none      &none      &none        &none       &none              &kp F10   &kp F1   &kp F2   &kp F3   &none             &none
+// ╰───────────┴──────────┴──────────┼────────────┼───────────┼───────────────┤  ├─────────┼────────┼────────┴────────┴─────────────────┴───────╯
+                                       &none        &none       &trans             &trans    &trans
+//                                   ╰────────────┴───────────┴───────────────╯  ╰─────────┴────────╯
             >;
         };
     };
