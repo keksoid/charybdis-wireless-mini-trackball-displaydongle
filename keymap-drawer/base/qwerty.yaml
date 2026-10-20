@@ -1,7 +1,7 @@
 layout: {zmk_keyboard: qwerty}
 layers:
   Base:
-  - RU LANG
+  - LANG
   - Q
   - W
   - E
@@ -12,7 +12,7 @@ layers:
   - I
   - O
   - P
-  - DELETE
+  - '['
   - TAB
   - {t: A, h: LCMD}
   - {t: S, h: LALT}
@@ -36,53 +36,11 @@ layers:
   - ','
   - .
   - /
-  - {t: '?', s: '!'}
+  - ']'
   - ESC SYM
   - LCLK SCRL
   - {t: BACK SPACE, h: Num}
   - ENTER RALT
-  - {t: SPACE, h: Functional}
-  Russan:
-  - ENG LANG
-  - RU CYRILLIC SHORT I
-  - RU CYRILLIC TSE
-  - RU CYRILLIC U
-  - RU CYRILLIC KA
-  - RU CYRILLIC IE
-  - RU CYRILLIC EN
-  - RU CYRILLIC GHE
-  - RU CYRILLIC SHA
-  - RU CYRILLIC SHCHA
-  - RU CYRILLIC ZE
-  - RU CYRILLIC HA
-  - TAB
-  - {t: RU CYRILLIC EF, h: LCMD}
-  - {t: RU CYRILLIC YERU, h: LALT}
-  - {t: RU CYRILLIC VE, h: LSHFT}
-  - {t: RU CYRILLIC A, h: LCTRL}
-  - RU CYRILLIC PE
-  - RU CYRILLIC ER
-  - {t: RU CYRILLIC O, h: RCTRL}
-  - {t: RU CYRILLIC EL, h: RSHFT}
-  - {t: RU CYRILLIC DE, h: LALT}
-  - {t: RU CYRILLIC ZHE, h: RCMD}
-  - RU CYRILLIC E
-  - CLIP HIST
-  - RU CYRILLIC YA
-  - RU CYRILLIC CHE
-  - RU CYRILLIC ES
-  - RU CYRILLIC EM
-  - RU CYRILLIC I
-  - RU CYRILLIC TE
-  - RU CYRILLIC SOFT SIGN
-  - RU CYRILLIC BE
-  - RU CYRILLIC YU
-  - RU PERIOD
-  - RU CYRILLIC HARD SIGN
-  - ESC SYM
-  - LCLK SCRL
-  - {t: BACK SPACE, h: Num}
-  - ENTER
   - {t: SPACE, h: Functional}
   Num:
   - '`'
