@@ -129,16 +129,20 @@
             hold-trigger-on-release; // same-hand keys can still stack mods (e.g. Ctrl+Shift)
         };
 
-        ht_right_shift: right_shift_homerow_mod {
+        // Enter / RAlt (AltGr) thumb. AltGr is needed with keys on both halves
+        // (Polish ż ź ć on the left, ó ł ń on the right), so:
+        // - no hold-trigger-key-positions: every key can trigger the hold;
+        // - balanced: a key pressed and released while the thumb is held gets
+        //   AltGr, without waiting for tapping-term-ms;
+        // - no require-prior-idle-ms: Polish letters are typed mid-word.
+        ht_enter_ralt: enter_ralt_hold_tap {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            flavor = "tap-preferred";
-            tapping-term-ms = <280>;
-            quick-tap-ms = <175>;
-            require-prior-idle-ms = <150>;
-            retro-tap;
+            flavor = "balanced";
+            tapping-term-ms = <200>;
+            quick-tap-ms = <175>;          // tap, then hold = Enter repeat
+            retro-tap;                     // a slow press alone is still Enter
             bindings = <&kp>, <&kp>;
-            hold-trigger-key-positions = <KEYS_L THUMBS>;
         };
 
         td_esc_sym: td_esc_sym {
@@ -188,7 +192,7 @@
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <170>;
-            bindings = <&ht_right_shift RALT ENTER>, <&kp ENTER>; // hold, tap, double_tap
+            bindings = <&ht_enter_ralt RALT ENTER>, <&kp ENTER>; // hold, tap, double_tap
         };
 
         mo_clk: mo_click {
