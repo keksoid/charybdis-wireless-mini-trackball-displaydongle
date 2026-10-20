@@ -94,10 +94,15 @@ jobs:
       shell: bash
       run: |
         set -euo pipefail
-        for p in "$GITHUB_WORKSPACE"/patches/zmk-*.patch; do
-          [ -f "$p" ] || continue
-          echo "🩹 Applying $(basename "$p")"
-          git -C "$GITHUB_WORKSPACE/zmk" apply "$p"
+        # patches/<west project name>/*.patch are applied to that project
+        for d in "$GITHUB_WORKSPACE"/patches/*/; do
+          proj=$(basename "$d")
+          dir=$(west list -f "{abspath}" "$proj")
+          for p in "$d"*.patch; do
+            [ -f "$p" ] || continue
+            echo "🩹 $proj: applying $(basename "$p")"
+            git -C "$dir" apply "$p"
+          done
         done
 
     # ───────── pull in keymaps ─────────
