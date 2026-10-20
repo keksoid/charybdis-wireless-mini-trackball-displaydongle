@@ -145,14 +145,20 @@
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <150>;
-            bindings = <&lt_nav 3 ESC>, <&mo 5>; // hold, tap, double_tap
+            bindings = <&ht_esc_layer 3 ESC>, <&mo 5>; // hold, tap, double_tap
         };
 
-        lt_nav: nav_layer_tap {
+        // Same as the space/backspace thumbs, with two differences, because an
+        // accidental Esc can close a dialog or leave an editor mode:
+        // - no require-prior-idle-ms: symbols are often typed right after a
+        //   letter (e.g. "foo("), and that must still switch to the layer;
+        // - no retro-tap: holding the key and releasing it alone sends nothing.
+        ht_esc_layer: ht_esc_layer {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            flavor = "tap-preferred";
-            tapping-term-ms = <170>;
+            flavor = "balanced";
+            tapping-term-ms = <200>;
+            quick-tap-ms = <175>;          // tap, then hold = key repeat
             bindings = <&mo>, <&kp>;
         };
 
