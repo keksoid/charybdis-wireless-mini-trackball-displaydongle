@@ -145,7 +145,7 @@
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <150>;
-            bindings = <&lt_nav 4 ESC>, <&mo 6>; // hold, tap, double_tap
+            bindings = <&lt_nav 3 ESC>, <&mo 5>; // hold, tap, double_tap
         };
 
         lt_nav: nav_layer_tap {
@@ -198,7 +198,7 @@
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <170>;
-            bindings = <&mo_clk 7 LCLK>, <&mkp LCLK>; // hold, tap, double_tap
+            bindings = <&mo_clk 6 LCLK>, <&mkp LCLK>; // hold, tap, double_tap
         };
 
         mo_kp: mo_kp {
@@ -218,29 +218,17 @@
             tapping-term-ms = <125>;
         };
 
-        td_layers_0: td_layer_swap_0 {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            bindings = <&to 0>, <&lang_change>; // tap, double_tap
-        };
-        
-        td_layers_1: td_layer_swap_1 {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            bindings = <&to 1>, <&lang_change>; // tap, double_tap
-        };
-
         td_clk_scrl: td_click_or_scroll {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <250>;
-            bindings = <&mkp RCLK>, <&mo 8>;  // tap/hold, double_tap
+            bindings = <&mkp RCLK>, <&mo 7>;  // tap/hold, double_tap
         };
 
         td_bore: BASE_or_EXTRA {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            bindings = <&mo 5>, <&to 0>;
+            bindings = <&mo 4>, <&to 0>;
         };
 
         mm_qm_ex: question_exclamation {

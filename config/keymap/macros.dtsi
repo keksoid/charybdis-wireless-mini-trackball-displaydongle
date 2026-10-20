@@ -152,7 +152,7 @@
                 ;
         };
 
-        lang_change: lang_change { // CLIPBOARD_HISTORY
+        lang_change: lang_change { // OS language switch (Win+Space)
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings 
