@@ -29,7 +29,7 @@
         };
 
         combo_precision_mouse {
-            bindings = <&mo 6>;
+            bindings = <&mo 5>;
             key-positions = <16 37>;
         };
     };

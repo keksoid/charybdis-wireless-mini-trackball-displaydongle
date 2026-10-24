@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find /c/Users/savenko/Documents/dev/keyboard_display -type f \\\\\\(-name *.keymap -o -name west.yml -o -name west.yaml -o -name CMakeLists.txt -o -name build.yaml -o -name Makefile -o -name *.yml -o -name *.yaml \\\\\\))"
+    ]
+  }
+}

@@ -176,8 +176,7 @@ parse_config:
   raw_binding_map: {
     "&td_mouse_scroll": "LCLK SCRL",
     "&td_enter_ralt": "ENTER RALT",
-    "&td_layers_1": "RU LANG",
-    "&td_layers_0": "ENG LANG",
+    "&lang_change": "LANG",
     "&bootloader": "BOOT LDR",
     "&mkp RCLK": "R CLK",
     "&mkp LCLK": "L CLK",

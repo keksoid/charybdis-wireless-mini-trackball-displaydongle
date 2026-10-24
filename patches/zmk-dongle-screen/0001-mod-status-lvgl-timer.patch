@@ -1,0 +1,63 @@
+Fix for janpfischer/zmk-dongle-screen 0.1.2 (not fixed upstream as of 2026-10-20).
+fix(mod_status): Update the modifier widget from an LVGL timer
+
+The widget used a k_timer, whose callback runs in interrupt context, to call
+lv_label_set_text() every 100 ms. LVGL is not thread-safe: when the call
+interrupts the display thread during a redraw or a heap operation, LVGL's
+state gets corrupted and the dongle freezes (screen stops updating, keys and
+pointer stop working). Use lv_timer_create() instead, which runs inside
+lv_task_handler() on the display work queue, and only set the text when the
+modifiers change.
+
+diff --git a/boards/shields/dongle_screen/src/widgets/mod_status.c b/boards/shields/dongle_screen/src/widgets/mod_status.c
+index d742a25..1564625 100644
+--- a/boards/shields/dongle_screen/src/widgets/mod_status.c
++++ b/boards/shields/dongle_screen/src/widgets/mod_status.c
+@@ -9,7 +9,14 @@ LOG_MODULE_DECLARE(zmk, CONFIG_ZMK_LOG_LEVEL);
+ 
+ static void update_mod_status(struct zmk_widget_mod_status *widget)
+ {
++    static int last_mods = -1;
+     uint8_t mods = zmk_hid_get_keyboard_report()->body.modifiers;
++
++    // Only touch the label when something changed: lv_label_set_text()
++    // allocates and asks for a redraw on every call.
++    if (mods == last_mods)
++        return;
++    last_mods = mods;
+     char text[32] = "";
+     int idx = 0;
+ 
+@@ -43,14 +50,17 @@ static void update_mod_status(struct zmk_widget_mod_status *widget)
+     lv_label_set_text(widget->label, idx ? text : "");
+ }
+ 
+-static void mod_status_timer_cb(struct k_timer *timer)
++// An LVGL timer, not a k_timer: k_timer callbacks run in interrupt context,
++// and LVGL is not thread-safe. Calling lv_label_set_text() from there could
++// interrupt the display thread in the middle of a redraw or a heap operation
++// and corrupt LVGL's state (the dongle then freezes). LVGL timers run inside
++// lv_task_handler(), on the display work queue.
++static void mod_status_timer_cb(lv_timer_t *timer)
+ {
+-    struct zmk_widget_mod_status *widget = k_timer_user_data_get(timer);
++    struct zmk_widget_mod_status *widget = timer->user_data;
+     update_mod_status(widget);
+ }
+ 
+-static struct k_timer mod_status_timer;
+-
+ int zmk_widget_mod_status_init(struct zmk_widget_mod_status *widget, lv_obj_t *parent)
+ {
+     widget->obj = lv_obj_create(parent);
+@@ -61,9 +71,7 @@ int zmk_widget_mod_status_init(struct zmk_widget_mod_status *widget, lv_obj_t *p
+     lv_label_set_text(widget->label, "-");
+     lv_obj_set_style_text_font(widget->label, &NerdFonts_Regular_40, 0); // <-- NerdFont setzen
+ 
+-    k_timer_init(&mod_status_timer, mod_status_timer_cb, NULL);
+-    k_timer_user_data_set(&mod_status_timer, widget);
+-    k_timer_start(&mod_status_timer, K_MSEC(100), K_MSEC(100));
++    lv_timer_create(mod_status_timer_cb, 100, widget);
+ 
+     return 0;
+ }

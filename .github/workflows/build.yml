@@ -89,6 +89,22 @@ jobs:
         echo "👀 West workspace ready. Project structure:"
         west list
 
+    # ───────── apply local ZMK patches ─────────
+    - name: Apply ZMK patches
+      shell: bash
+      run: |
+        set -euo pipefail
+        # patches/<west project name>/*.patch are applied to that project
+        for d in "$GITHUB_WORKSPACE"/patches/*/; do
+          proj=$(basename "$d")
+          dir=$(west list -f "{abspath}" "$proj")
+          for p in "$d"*.patch; do
+            [ -f "$p" ] || continue
+            echo "🩹 $proj: applying $(basename "$p")"
+            git -C "$dir" apply "$p"
+          done
+        done
+
     # ───────── pull in keymaps ─────────
     - name: Download keymaps
       uses: actions/download-artifact@v4
@@ -121,7 +137,7 @@ jobs:
         mkdir -p "$ZMK_SHIELDS_DIR"
         cp -r "boards/shields/charybdis_${{ matrix.combo.format }}" "$ZMK_SHIELDS_DIR/"
         for d in "$ZMK_SHIELDS_DIR"/*; do
-          for f in charybdis-layouts.dtsi charybdis_pmw3610.dtsi charybdis_pointer.dtsi; do
+          for f in charybdis-layouts.dtsi charybdis_pmw3610.dtsi charybdis_pointer.dtsi charybdis_input_split.dtsi; do
             [ -f "config/$f" ] && cp "config/$f" "$d/" || true
           done
         done

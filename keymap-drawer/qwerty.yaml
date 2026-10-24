@@ -1,7 +1,7 @@
 layout: {zmk_keyboard: qwerty}
 layers:
   Base:
-  - RU LANG
+  - LANG
   - Q
   - W
   - E
@@ -12,7 +12,7 @@ layers:
   - I
   - O
   - P
-  - DELETE
+  - '['
   - TAB
   - {t: A, h: LCMD}
   - {t: S, h: LALT}
@@ -36,56 +36,14 @@ layers:
   - ','
   - .
   - /
-  - {t: '?', s: '!'}
+  - ']'
   - ESC SYM
   - LCLK SCRL
-  - BS NUM
+  - {t: BACK SPACE, h: Num}
   - ENTER RALT
-  - SPACE FUNC
-  Russan:
-  - ENG LANG
-  - RU CYRILLIC SHORT I
-  - RU CYRILLIC TSE
-  - RU CYRILLIC U
-  - RU CYRILLIC KA
-  - RU CYRILLIC IE
-  - RU CYRILLIC EN
-  - RU CYRILLIC GHE
-  - RU CYRILLIC SHA
-  - RU CYRILLIC SHCHA
-  - RU CYRILLIC ZE
-  - RU CYRILLIC HA
-  - TAB
-  - {t: RU CYRILLIC EF, h: LCMD}
-  - {t: RU CYRILLIC YERU, h: LALT}
-  - {t: RU CYRILLIC VE, h: LSHFT}
-  - {t: RU CYRILLIC A, h: LCTRL}
-  - RU CYRILLIC PE
-  - RU CYRILLIC ER
-  - {t: RU CYRILLIC O, h: RCTRL}
-  - {t: RU CYRILLIC EL, h: RSHFT}
-  - {t: RU CYRILLIC DE, h: LALT}
-  - {t: RU CYRILLIC ZHE, h: RCMD}
-  - RU CYRILLIC E
-  - CLIP HIST
-  - RU CYRILLIC YA
-  - RU CYRILLIC CHE
-  - RU CYRILLIC ES
-  - RU CYRILLIC EM
-  - RU CYRILLIC I
-  - RU CYRILLIC TE
-  - RU CYRILLIC SOFT SIGN
-  - RU CYRILLIC BE
-  - RU CYRILLIC YU
-  - RU PERIOD
-  - RU CYRILLIC HARD SIGN
-  - ESC SYM
-  - LCLK SCRL
-  - BS NUM
-  - ENTER
-  - SPACE FUNC
+  - {t: SPACE, h: Functional}
   Num:
-  - ''
+  - '`'
   - ''
   - ''
   - ''
@@ -123,11 +81,11 @@ layers:
   - /
   - ''
   - ''
-  - {t: ▽, type: trans}
+  - {type: held}
   - '0'
   - SPACE
   Nav:
-  - ''
+  - '`'
   - WHEEL L
   - WHEEL D
   - ''
@@ -169,7 +127,7 @@ layers:
   - ''
   - {t: ▽, type: trans}
   Sym:
-  - ''
+  - '`'
   - '~'
   - $
   - ^
@@ -181,7 +139,7 @@ layers:
   - ']'
   - <
   - '>'
-  - '`'
+  - ''
   - _
   - <
   - '>'
@@ -253,7 +211,7 @@ layers:
   - ''
   - ''
   Slow:
-  - ''
+  - '`'
   - WHEEL L
   - WHEEL D
   - ''
@@ -295,7 +253,7 @@ layers:
   - ''
   - {t: ▽, type: trans}
   Scroll:
-  - ''
+  - '`'
   - WHEEL L
   - WHEEL D
   - ''
@@ -337,16 +295,16 @@ layers:
   - ''
   - {t: ▽, type: trans}
   Functional:
+  - '`'
   - ''
   - ''
   - ''
   - ''
   - ''
-  - ''
-  - F3
-  - F10
-  - F11
   - F12
+  - F7
+  - F8
+  - F9
   - ''
   - ''
   - TAB
@@ -355,10 +313,10 @@ layers:
   - LSHIFT
   - LCTRL
   - BACK SPACE
-  - F2
-  - F7
-  - F8
-  - F9
+  - F11
+  - F4
+  - F5
+  - F6
   - PRINT SCREEN
   - ''
   - ''
@@ -367,17 +325,17 @@ layers:
   - ''
   - ''
   - ''
+  - F10
   - F1
-  - F4
-  - F5
-  - F6
+  - F2
+  - F3
   - ''
   - ''
   - ''
   - ''
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - {type: held}
 combos:
 - p: [17, 18]
   k: CAPS WORD
