@@ -38,10 +38,12 @@ A fully solid version of the same shape needs about 1720 cm³.
 
 | File | What it is |
 |---|---|
-| `stl/travel_case_base.stl` | Base, ready to print |
-| `stl/travel_case_lid.stl` | Lid, ready to print. It is modelled closed, so turn it upside down in the slicer. |
+| `stl/travel_case_base.stl` | Base, hollow, for SLS, MJF or SLA printing |
+| `stl/travel_case_lid.stl` | Lid, hollow, for SLS, MJF or SLA printing. It is modelled closed, so turn it upside down in the slicer. |
+| `stl/travel_case_base_fdm.stl` | Base, solid, for FDM printing. Print with the floor on the bed. |
+| `stl/travel_case_lid_fdm.stl` | Lid, solid, for FDM printing. Already turned over: flat top on the bed, pockets facing up. |
 | `stl/travel_case_test_frame.stl` | Fit test: only the lowest 6 mm of the base walls, without a floor. |
-| `combined_case.scad` | OpenSCAD model. Set `part` to `base`, `lid`, `test_frame`, `closed`, `open` or `section`. |
+| `combined_case.scad` | OpenSCAD model. Set `part` to `base`, `lid`, `lid_print`, `test_frame`, `closed`, `open` or `section`, and `hollow` to `true` or `false`. |
 | `case_data.scad` | Generated pocket shapes and positions. Do not edit it by hand. |
 | `tools/build_case_data.py` | Writes `case_data.scad` from the original travel case files. |
 | `tools/build.py` | Exports the STL files and the preview images. |
@@ -59,14 +61,31 @@ If a pocket is too tight or too loose, report the place and by how much. The poc
 
 ## Ordering a print
 
-The parts were made with online print services such as JLCPCB in mind. These services usually set the price by material volume.
+There are two sets of files. Choose the set that matches the print process.
+
+### SLS, MJF or SLA (hollow files)
+
+Online services such as JLCPCB usually set the price by material volume, so these files are hollow.
 
 | Material | Notes |
 |---|---|
-| MJF nylon (PA12) | Strong and slightly flexible. A good choice for a case that travels in a bag. |
+| SLS or MJF nylon (PA12) | Strong and slightly flexible. A good choice for a case that travels in a bag. |
 | SLA resin | Smoother surface, more brittle. |
 
 The skins are 2.5 mm thick, which is above the usual minimum wall thickness of these processes (about 1 mm).
+
+### FDM (`_fdm` files)
+
+FDM printers build the part from melted plastic, layer by layer. Do not use the hollow files on FDM: the pocket ceilings of the lid would need support material inside closed hollows. Use the solid `_fdm` files. The slicer fills the inside with infill, so they do not use much more plastic.
+
+| Setting | Value |
+|---|---|
+| Material | PCTG or PETG (PETG Matte hides layer lines). Avoid PLA: it softens at about 55–60 °C, for example in a car. PLA is fine for the test frame. |
+| Orientation | Base: floor on the bed. Lid: flat top on the bed (the `_fdm` file is already turned). |
+| Supports | Not needed |
+| Walls / infill | 3–4 walls, about 15 % infill |
+| Layer height | 0.2 mm |
+| Printer size | The parts are 161 × 304 mm, so the bed must be at least about 310 mm in one direction. |
 
 After printing, glue the magnets into the holes (6.3 mm wide, 3.3 mm deep). Check the polarity before the glue sets: each magnet in the lid must attract the magnet below it in the base.
 

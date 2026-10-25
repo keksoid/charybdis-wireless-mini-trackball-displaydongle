@@ -17,16 +17,25 @@ OPENSCAD = os.environ.get("OPENSCAD", r"C:\Program Files\OpenSCAD (Nightly)\open
 SCAD = TRAVEL / "combined_case.scad"
 STL = TRAVEL / "stl"
 PREVIEW = TRAVEL / "preview"
-PARTS = ["base", "lid", "test_frame"]
+# (file name, part, hollow): hollow parts for SLS/MJF/SLA, solid parts for FDM
+PARTS = [
+    ("travel_case_base", "base", True),
+    ("travel_case_lid", "lid", True),
+    ("travel_case_test_frame", "test_frame", True),
+    ("travel_case_base_fdm", "base", False),
+    ("travel_case_lid_fdm", "lid_print", False),
+]
 
 
 def openscad(*args):
     subprocess.run([OPENSCAD, *args], check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 
 
-def export(part):
-    out = STL / f"travel_case_{part}.stl"
-    openscad("--render", "--export-format", "binstl", "-D", f'part="{part}"', "-o", str(out), str(SCAD))
+def export(item):
+    name, part, hollow = item
+    out = STL / f"{name}.stl"
+    openscad("--render", "--export-format", "binstl", "-D", f'part="{part}"',
+             "-D", f"hollow={'true' if hollow else 'false'}", "-o", str(out), str(SCAD))
     return out
 
 

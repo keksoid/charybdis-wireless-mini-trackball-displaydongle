@@ -7,7 +7,8 @@
 // trapped inside when printed in resin (SLA) or nylon (MJF). Ribs keep the shell stiff.
 include <case_data.scad>
 
-part      = "closed";  // "base", "lid", "test_frame", "closed", "open", "section"
+part      = "closed";  // "base", "lid", "lid_print", "test_frame", "closed", "open", "section"
+hollow    = true;      // true: hollow shell for SLS/MJF/SLA; false: solid, for FDM (the slicer adds infill)
 z_split   = 15;        // height of the base/lid split (pocket floor is at z_pocket)
 corner_r  = 12;
 skin      = 2.5;       // wall thickness everywhere
@@ -59,7 +60,7 @@ module finger_notches() for (x = [outer[0], outer[2]])
 module below_split() translate([outer[0] - 1, outer[1] - 1, z_floor - 1]) cube([500, 500, z_split - z_floor + 1]);
 module above_split() translate([outer[0] - 1, outer[1] - 1, z_split]) cube([500, 500, 200]);
 
-module body() difference() { shell(); cavities(); hollow(); finger_notches(); }
+module body() difference() { shell(); cavities(); if (hollow) hollow(); finger_notches(); }
 module base() difference() { intersection() { body(); below_split(); } magnet_holes(-1); }
 module lid()  difference() { intersection() { body(); above_split(); } magnet_holes(1); }
 
@@ -74,6 +75,8 @@ module test_frame() intersection() {
 
 if (part == "base") base();
 if (part == "lid")  lid();
+// lid turned over for printing: flat top on the bed, pockets facing up
+if (part == "lid_print") translate([0, 0, z_top]) mirror([0, 0, 1]) lid();
 if (part == "test_frame") test_frame();
 if (part == "closed") { color("SteelBlue") base(); color("Orange") lid(); }
 if (part == "open") {
