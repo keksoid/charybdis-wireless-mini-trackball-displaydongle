@@ -1,2 +1,3 @@
 tools/.cache/
 preview/_*.scad
+__pycache__/
