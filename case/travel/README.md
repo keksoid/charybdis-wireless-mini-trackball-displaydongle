@@ -8,14 +8,29 @@ One flat case for the whole keyboard: both halves, the display dongle and a 1 m 
 
 | Part | Size or detail |
 |---|---|
-| Closed case | 161 × 304 × 68 mm |
-| Left and right half | Each in its own pocket. The pocket shape is the inside of the original travel case (see [Credits](#credits-and-licence)). |
+| Closed case | 161 × 304 × 69 mm |
+| Left and right half | Each in its own pocket. In the base, the pocket outline is the inside wall of the original travel case (see [Credits](#credits-and-licence)). In the lid, each pocket has a flat ceiling (see [Pocket height](#pocket-height)). |
 | Display dongle | Pocket of 41 × 46 mm, 53.5 mm deep. The dongle stands on its rear cap, with the USB-C port down. Unplug the cable first. |
 | Cable | Compartment of 149 × 40 mm, about 61 mm deep, across one end. A coiled 1 m cable fits. |
 | Magnets | 9 pairs of 6 × 3 mm disc magnets in the surface where base and lid meet. |
-| Keycaps | The lid has 1 mm of extra space above the keys. The custom keycaps in [`case/keycaps`](../keycaps) are 8.6–12.7 mm tall. |
+| Keycaps | Made for the custom keycaps in [`case/keycaps`](../keycaps) (8.6–12.7 mm tall). |
 
 ![Open case](preview/open.png)
+
+## Pocket height
+
+Each lid pocket has a flat ceiling at the highest point of that keyboard half plus 2 mm. The heights are measured on the real keyboard with the custom keycaps, standing on a table:
+
+| Half | Highest point | Room above the pocket floor |
+|---|---|---|
+| Left | 62 mm (thumb key) | 64 mm |
+| Right | 56 mm (keycap and trackball top) | 58 mm |
+
+The original travel case has a curved ceiling that follows a lower keyboard (XDA or HSA keycaps). The custom thumb keys are too tall for it, so this case does not use that ceiling.
+
+The keyboards can move up and down a little inside the case. For a firm fit, glue a few mm of soft foam (for example EVA foam) to the lid ceilings.
+
+With other keycaps, measure the highest point of each half and change `KEYBOARD_HEIGHT` in `tools/build_case_data.py`. Set `CEILING = "original"` to use the curved ceiling of the original case.
 
 ## How it is built
 
@@ -28,11 +43,11 @@ The case is hollow, to use less material.
 
 | | Material volume |
 |---|---|
-| Base | about 240 cm³ |
-| Lid | about 500 cm³ |
-| Test frame | about 40 cm³ |
-
-A fully solid version of the same shape needs about 1720 cm³.
+| | Hollow (SLS, MJF, SLA) | Solid (FDM, before infill) |
+|---|---|---|
+| Base | about 245 cm³ | about 365 cm³ |
+| Lid | about 485 cm³ | about 860 cm³ |
+| Test frame | about 40 cm³ | – |
 
 ## Files
 
@@ -99,17 +114,17 @@ You need:
 
 ```
 python tools/build_case_data.py   # downloads the original case, writes case_data.scad
-python tools/build.py             # exports stl/ and preview/ (several minutes)
+python tools/build.py             # exports stl/ and preview/ (less than a minute)
 ```
 
 Both scripts look for OpenSCAD in `C:\Program Files\OpenSCAD (Nightly)\`. Set the `OPENSCAD` environment variable to use another location.
 
-The main settings are at the top of `tools/build_case_data.py` (wall sizes, cable compartment width, extra space above the keys) and `combined_case.scad` (skin thickness, rib spacing, magnet size, height of the split between base and lid).
+The main settings are at the top of `tools/build_case_data.py` (wall sizes, cable compartment width, keyboard heights, ceiling type) and `combined_case.scad` (skin thickness, rib spacing, magnet size, height of the split between base and lid).
 
 ## Known limits
 
-- The fit with the real keyboards is not tested.
-- The lid pockets follow the inside of the original covers. In the thumb area of the right half the surface is uneven, because the original has the trackball dome there.
+- The outline fit is not tested with the real keyboards yet. Use the test frame.
+- The pocket heights come from measurements with a ruler (about ±1 mm). The 2 mm headroom covers that.
 - The hollow space is visible when the case is open.
 
 ## Credits and licence
