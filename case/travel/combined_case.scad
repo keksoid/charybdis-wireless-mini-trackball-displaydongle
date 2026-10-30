@@ -68,9 +68,14 @@ module lid()  difference() { intersection() { body(); above_split(); } magnet_ho
 // Put the keyboard halves and the dongle into it to check the outlines before
 // ordering the full case.
 test_h = 6;
-module test_frame() intersection() {
-    base();
-    translate([outer[0] - 1, outer[1] - 1, z_pocket]) cube([500, 500, test_h]);
+// The pocket floors lie exactly on the bottom cut, so the cavities are moved down 1 mm
+// to cut fully through. Otherwise the floors stay in the STL as sheets with no thickness.
+module test_frame() difference() {
+    intersection() {
+        base();
+        translate([outer[0] - 1, outer[1] - 1, z_pocket]) cube([500, 500, test_h]);
+    }
+    translate([0, 0, -1]) cavities();
 }
 
 if (part == "base") base();

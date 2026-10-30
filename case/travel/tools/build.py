@@ -21,7 +21,7 @@ PREVIEW = TRAVEL / "preview"
 PARTS = [
     ("travel_case_base", "base", True),
     ("travel_case_lid", "lid", True),
-    ("travel_case_test_frame", "test_frame", True),
+    ("travel_case_test_frame", "test_frame", False),
     ("travel_case_base_fdm", "base", False),
     ("travel_case_lid_fdm", "lid_print", False),
 ]

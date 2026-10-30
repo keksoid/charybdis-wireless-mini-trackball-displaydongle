@@ -47,7 +47,7 @@ The case is hollow, to use less material.
 |---|---|---|
 | Base | about 245 cm³ | about 365 cm³ |
 | Lid | about 485 cm³ | about 860 cm³ |
-| Test frame | about 40 cm³ | – |
+| Test frame | – | about 80 cm³ (always solid) |
 
 ## Files
 
@@ -57,7 +57,7 @@ The case is hollow, to use less material.
 | `stl/travel_case_lid.stl` | Lid, hollow, for SLS, MJF or SLA printing. It is modelled closed, so turn it upside down in the slicer. |
 | `stl/travel_case_base_fdm.stl` | Base, solid, for FDM printing. Print with the floor on the bed. |
 | `stl/travel_case_lid_fdm.stl` | Lid, solid, for FDM printing. Already turned over: flat top on the bed, pockets facing up. |
-| `stl/travel_case_test_frame.stl` | Fit test: only the lowest 6 mm of the base walls, without a floor. |
+| `stl/travel_case_test_frame.stl` | Fit test: only the lowest 6 mm of the base walls, without a floor. It is solid, so it works for every print process. |
 | `combined_case.scad` | OpenSCAD model. Set `part` to `base`, `lid`, `lid_print`, `test_frame`, `closed`, `open` or `section`, and `hollow` to `true` or `false`. |
 | `case_data.scad` | Generated pocket shapes and positions. Do not edit it by hand. |
 | `tools/build_case_data.py` | Writes `case_data.scad` from the original travel case files. |
