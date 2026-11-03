@@ -55,8 +55,10 @@ module hollow() difference() {
 
 module magnet_holes(dir) for (m = magnets)
     translate([m[0], m[1], dir > 0 ? z_split - 0.01 : z_split - mag_h]) cylinder(d = mag_d, h = mag_h + 0.01);
+// The sphere is turned a half step, so none of its points lie exactly in the outer wall plane.
+// Points in that plane leave non-manifold edges in the STL.
 module finger_notches() for (x = [outer[0], outer[2]])
-    translate([x, (outer[1] + outer[3]) / 2, z_split]) scale([1, 2.2, 1]) sphere(r = 9);
+    translate([x, (outer[1] + outer[3]) / 2, z_split]) scale([1, 2.2, 1]) rotate([0, 0, 180 / $fn]) sphere(r = 9);
 module below_split() translate([outer[0] - 1, outer[1] - 1, z_floor - 1]) cube([500, 500, z_split - z_floor + 1]);
 module above_split() translate([outer[0] - 1, outer[1] - 1, z_split]) cube([500, 500, 200]);
 
