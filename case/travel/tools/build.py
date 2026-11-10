@@ -73,7 +73,7 @@ def main():
     views = [
         ("closed", f'color("SteelBlue") import("{base}"); color("Orange") import("{lid}");', "60,0,210"),
         ("open", f'color("SteelBlue") import("{base}");\n'
-                 f'color("Orange") translate([186, 0, 77]) mirror([0, 0, 1]) import("{lid}");', "50,0,25"),
+                 f'color("Orange") translate([88, 0, 77]) rotate([0, 180, 0]) import("{lid}");', "50,0,25"),
         ("base", f'color("SteelBlue") import("{base}");', "20,0,0"),
         ("lid_inside", f'color("Orange") import("{lid}");', "180,0,25"),
         ("test_frame", f'color("SteelBlue") import("{frame}");', "35,0,20"),

@@ -83,12 +83,13 @@ module test_frame() difference() {
 if (part == "base") base();
 if (part == "lid")  lid();
 // lid turned over for printing: flat top on the bed, pockets facing up
-if (part == "lid_print") translate([0, 0, z_top]) mirror([0, 0, 1]) lid();
+// Rotate, do not mirror: a mirrored lid turned over by hand does not match the base.
+if (part == "lid_print") translate([outer[0] + outer[2], 0, z_top]) rotate([0, 180, 0]) lid();
 if (part == "test_frame") test_frame();
 if (part == "closed") { color("SteelBlue") base(); color("Orange") lid(); }
 if (part == "open") {
     color("SteelBlue") base();
-    color("Orange") translate([outer[2] - outer[0] + 25, 0, z_top + z_split]) mirror([0, 0, 1]) lid();
+    color("Orange") translate([2 * outer[2] + 25, 0, z_top + z_split]) rotate([0, 180, 0]) lid();
 }
 // cut across the case to show the skins, ribs and hollows
 if (part == "section") intersection() {
