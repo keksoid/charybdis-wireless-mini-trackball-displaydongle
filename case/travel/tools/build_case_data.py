@@ -35,6 +35,9 @@ COVER_RIGHT = (90, -179.0, -288.5)
 # Where the right pocket goes, relative to its original position: next to the
 # left pocket with a 4.5 mm divider. This layout leaves a corner for the dongle.
 RIGHT_SHIFT = (12.0, 314.9)
+# Extra room around each keyboard half, on every side. The original outlines are a tight
+# fit, and a PETG print of them was too tight to push the halves in.
+FIT_GAP = 1.0
 
 WALL_OUT = 6.0     # outline of the cavities to the outside of the case
 WALL_IN = 4.5      # between two cavities
@@ -193,8 +196,10 @@ def scad_ceiling(name, gx, gy, h, ox, oy):
 def main():
     CACHE.mkdir(exist_ok=True)
     fetch_source()
-    left = inner_outline("left", COVER_LEFT)
-    right = affinity.translate(inner_outline("right", COVER_RIGHT), *RIGHT_SHIFT)
+    # move the right half away by the two gaps, so the divider stays WALL_IN thick
+    right_shift = (RIGHT_SHIFT[0], RIGHT_SHIFT[1] + 2 * FIT_GAP)
+    left = inner_outline("left", COVER_LEFT).buffer(FIT_GAP)
+    right = affinity.translate(inner_outline("right", COVER_RIGHT).buffer(FIT_GAP), *right_shift)
     print("divider between the halves: %.1f mm" % left.distance(right))
     if CEILING == "original":
         ceil_l = ceiling("left", COVER_LEFT)
@@ -207,7 +212,7 @@ def main():
             h = KEYBOARD_HEIGHT[side] + HEADROOM + Z_POCKET
             return np.array([bx0 - 5, bx1 + 5]), np.array([by0 - 5, by1 + 5]), np.full((2, 2), h)
         ceil_l = flat(left, "left")
-        ceil_r = flat(right, "right", RIGHT_SHIFT)
+        ceil_r = flat(right, "right", right_shift)
         clear = 0.0
 
     pockets = unary_union([left, right])
@@ -248,7 +253,7 @@ def main():
         f.write("module outline_left() %s\n" % scad_polygon(left))
         f.write("module outline_right() %s\n" % scad_polygon(right))
         f.write(scad_ceiling("ceiling_left", *ceil_l, 0, 0))
-        f.write(scad_ceiling("ceiling_right", *ceil_r, *RIGHT_SHIFT))
+        f.write(scad_ceiling("ceiling_right", *ceil_r, *right_shift))
     print("case %.1f x %.1f x %.1f mm, %d magnets -> %s"
           % (x1 - x0, y1 - y0, zmax + TOP - (Z_POCKET - FLOOR), len(mags), out.relative_to(TRAVEL.parent.parent)))
 

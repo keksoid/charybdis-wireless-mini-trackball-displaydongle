@@ -8,11 +8,11 @@ One flat case for the whole keyboard: both halves, the display dongle and a 1 m 
 
 | Part | Size or detail |
 |---|---|
-| Closed case | 161 × 304 × 69 mm |
-| Left and right half | Each in its own pocket. In the base, the pocket outline is the inside wall of the original travel case (see [Credits](#credits-and-licence)). In the lid, each pocket has a flat ceiling (see [Pocket height](#pocket-height)). |
+| Closed case | 163 × 308 × 69 mm |
+| Left and right half | Each in its own pocket. In the base, the pocket outline is the inside wall of the original travel case (see [Credits](#credits-and-licence)), plus a 1 mm gap on every side (see [Pocket fit](#pocket-fit)). In the lid, each pocket has a flat ceiling (see [Pocket height](#pocket-height)). |
 | Display dongle | Pocket of 41 × 46 mm, 53.5 mm deep. The dongle stands on its rear cap, with the USB-C port down. Unplug the cable first. |
-| Cable | Compartment of 149 × 40 mm, about 61 mm deep, across one end. A coiled 1 m cable fits. |
-| Magnets | 9 pairs of 6 × 3 mm disc magnets in the surface where base and lid meet. |
+| Cable | Compartment of 151 × 40 mm, about 61 mm deep, across one end. A coiled 1 m cable fits. |
+| Magnets | 10 pairs of 6 × 3 mm disc magnets (20 magnets) in the surface where base and lid meet. |
 | Keycaps | Made for the custom keycaps in [`case/keycaps`](../keycaps) (8.6–12.7 mm tall). |
 
 ![Open case](preview/open.png)
@@ -32,6 +32,12 @@ The keyboards can move up and down a little inside the case. For a firm fit, glu
 
 With other keycaps, measure the highest point of each half and change `KEYBOARD_HEIGHT` in `tools/build_case_data.py`. Set `CEILING = "original"` to use the curved ceiling of the original case.
 
+## Pocket fit
+
+Each keyboard pocket is 1 mm larger than the original outline on every side (`FIT_GAP` in `tools/build_case_data.py`). The original outlines printed in PETG were too tight: the halves did not go in fully, and the firm plastic was hard to trim. The 4.5 mm divider between the two pockets stays the same.
+
+For a firmer hold, glue thin soft foam to the pocket walls. To change the gap, set `FIT_GAP` and rebuild the files.
+
 ## How it is built
 
 The case is hollow, to use less material.
@@ -45,9 +51,9 @@ The case is hollow, to use less material.
 |---|---|
 | | Hollow (SLS, MJF, SLA) | Solid (FDM, before infill) |
 |---|---|---|
-| Base | about 245 cm³ | about 365 cm³ |
-| Lid | about 485 cm³ | about 860 cm³ |
-| Test frame | – | about 80 cm³ (always solid) |
+| Base | about 255 cm³ | about 370 cm³ |
+| Lid | about 505 cm³ | about 875 cm³ |
+| Test frame | – | about 85 cm³ (always solid) |
 
 ## Files
 
@@ -100,7 +106,7 @@ FDM printers build the part from melted plastic, layer by layer. Do not use the 
 | Supports | Not needed |
 | Walls / infill | 3–4 walls, about 15 % infill |
 | Layer height | 0.2 mm |
-| Printer size | The parts are 161 × 304 mm, so the bed must be at least about 310 mm in one direction. |
+| Printer size | The parts are 163 × 308 mm, so the bed must be at least about 310 mm in one direction. |
 
 After printing, glue the magnets into the holes (6.3 mm wide, 3.3 mm deep). Check the polarity before the glue sets: each magnet in the lid must attract the magnet below it in the base.
 
